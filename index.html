@@ -4,167 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Website</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Charm:wght@400;700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kalnia+Glaze:wght@100..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Mooli&family=PT+Sans+Narrow:wght@400;700&family=Roboto+Slab:wght@100..900&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&family=Teko:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
-    *{
-        font-family: "Merriweather", serif;
-
-    }
-    #home {
-    background: linear-gradient(45deg, #0dbed9, #feb47b);
-    }
-
-    #home h1 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    #home p.lead {
-        font-size: 1.25rem;
-        margin-bottom: 20px;
-    }
-
-    #home img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    #home .btn {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-    .container-fluid h2 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 0;
-        color: rgb(77, 4, 77);
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-        color: #333;
-        margin-bottom: 40px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        position: relative;
-    }
-
-    .section-title::after {
-        content: "";
-        width: 50px;
-        height: 4px;
-        background-color:green;
-        display: block;
-        margin: 10px auto 0;
-        border-radius: 2px;
-    }
-
-    .categories-content {
-        background-color: #f9f9f9;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-        transition: transform 0.3s, box-shadow 0.3s;
-        padding: 10px;;
-    }
-
-    .categories-content:hover {
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .category-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 15px;
-    }
-
-    .category-img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        transition: transform 0.3s;
-    }
-
-    .category-img {
-        border-radius: 10px;
-        margin-bottom: 15px;
-    }
-
-    .ratings {
-        font-size: 1.1rem;
-        color: #ffc107;
-        margin-bottom: 15px;
-    }
-
-    .icons{
-        display: flex;
-        justify-content: space-around;
-
-    }
-    i{
-        cursor: pointer;
-        font-size: 35px;
-        position: relative;
-
-    }
-
-    i #cart-count{
-        position: absolute;
-        top: 0; /* Position at the top */
-        right: 0; /* Position at the right */
-        transform: translate(50%, -50%); /* Adjust the position slightly */
-        background-color: #ff0000; /* Background color for the number badge */
-        color: #fff; /* Text color */
-        border-radius: 50%; /* Make it circular */
-        padding: 2px 5px; /* Adjust padding for size */
-        font-size: 18px; /* Adjust font size */
-        line-height: 1;
-        z-index: 1; /* Ensure it appears above the icon */
-    }
-    #cartList{
-            position: sticky;
-            top: 0;
-            padding: 10px;
-            border-left: 1px solid #ccc;
-            height: 100vh;
-            overflow-y: auto;
-            background-color: rgb(183, 221, 146);
-            display: none;
-            border-radius: 20px;
-        }
-        #cart-items{
-            width: 100%;
-            margin: 10px;
-            padding: 10px;
-            background: linear-gradient(60deg, #0ba441, #1174ca);
-        }
-        #total-price {
-            margin-top: 10px;
-            font-weight: bold;
-            color: white;
-        }
-
-
-    
-    
-
-
-    
-</style>    
 </head>
 <body id="body">
     <section id="navBar">
         <nav class="navbar navbar-expand-lg bg-success">
             <div class="container-fluid">
                 <img src="food-icon-36.png" style="width: 55px;height:55px;"><h2>HomeMade</h2>
-                    <i class="fa-solid fa-cart-shopping" onclick="openCart()" id="cart" style="padding: 2px; border-radius: 8px;">
+                    <i class="fa-solid fa-cart-shopping" id="cart" style="padding: 2px; border-radius: 8px;">
                         <span id="cart-count">0</span>
                     </i>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -192,14 +42,24 @@
                             <th >Item Img</th>
                             <th>Title</th>
                             <th >Price</th>
-                            <th>Qty</th>
+                            <th>Quantity</th>
                             <th >Total</th>
                         </tr>
                     </thead>
-                    <tbody id="cart-body"></tbody>
+                    <tbody id="cart-body">
+                    </tbody>
+                    <tfoot>
+                        <tr>
+
+                            <td colspan="4"><strong>Total:</strong></td>
+                            <td id="total-price">$0.00</td>
+                        </tr>
+                    </tfoot>
                 </table>
-                <div id="total-price">Total: $0.00</div>
             </div>
+            <button type="button" class="btn btn-success" onclick="orderProcess()">Order</button>
+            <div id="order-summary"></div>
+            
         </div>
         <div class="container py-5">
             <div class="row align-items-center">
@@ -224,43 +84,49 @@
                 <div class="col-6 col-sm-4 col-md-2">
                     <div class="categories-content">
                         <p class="category-title">Beef</p>
-                        <img src="beef.png" class="category-img">
-                        <p class="short-description">A halal Meat for Muslims. In this category, there are 5 items.</p>
+                        <img src="beef.png" class="category-img" onclick="catagories('In our Beef catagory there are 5 items. They are : <ul><li>Beef Asado</li><li>Beef Lo Mein</li><li>Beef Rendang</li><li>Beef Mechado</li><li>Szechuan Beef</li></ul>')">
+                        <p class="short-description">A halal Meat for Muslims.Enjoy fresh beef recipes. </p>
+                        <button type="button" class="btn btn-success"><a href="#items" style="text-decoration: none; color: white;"> Explore Items</a></button>
                     </div>
                 </div>
                 <div class="col-6 col-sm-4 col-md-2">
                     <div class="categories-content">
                         <p class="category-title">Chicken</p>
-                        <img src="chicken.png" class="category-img">
+                        <img src="chicken.png" class="category-img" onclick="catagories('In our Chicken catagory there are 5 items. They are : <ul><li>Chicken Handi</li><li>Chicken Congee</li><li>Chicken Karaage</li><li>Tandoori Chicken</li><li>Chicken Curry</li></ul>')">
                         <p class="short-description">Fresh, tender chicken with best Recipes of varrient.</p>
-                    </div>
+                        <button type="button" class="btn btn-success"><a href="#items" style="text-decoration: none; color: white;"> Explore Items</a></button>                    </div>
                 </div>
                 <div class="col-6 col-sm-4 col-md-2">
                     <div class="categories-content">
                         <p class="category-title">Goat</p>
-                        <img src="goat.png" class="category-img">
+                        <img src="goat.png" class="category-img" onclick="catagories('In our Goat catagory currently there are only one items. It is : <ul><li>Roasted Goat</li></ul>')">
                         <p class="short-description">Delicious goat meat, known for its rich flavor.</p>
+                        <button type="button" class="btn btn-success"><a href="#items" style="text-decoration: none; color: white;"> Explore Items</a></button>
                     </div>
                 </div>
                 <div class="col-6 col-sm-4 col-md-2">
                     <div class="categories-content">
                         <p class="category-title">Egg</p>
-                        <img src="egg.png" class="category-img">
-                        <p class="short-description">Versatile eggs, a staple for breakfasts, baking, and quick meals. </p>
+                        <img src="egg.png" class="category-img" onclick="catagories('In our Egg catagory there are 5 items. They are : <ul><li>Egg Drop Soup</li><li>Eggplant Adobo</li><li>Crispy Eggplant</li><li>Tuna and Egg Briks</li><li>Salmon Eggs</li></ul>')">
+                        <p class="short-description">Eggs, suitale for breakfasts, and quick meals. </p>
+                        <button type="button" class="btn btn-success"><a href="#items" style="text-decoration: none; color: white;"> Explore Items</a></button>
                     </div>
                 </div>
                 <div class="col-6 col-sm-4 col-md-2">
                     <div class="categories-content">
                         <p class="category-title">Breakfast</p>
-                        <img src="breakfast.png" class="category-img">
-                        <p class="short-description">Start your day right with our delightful breakfast options. </p>
+                        <img src="breakfast.png" class="category-img" onclick="catagories('In our Breakfast catagory there are 3 items. They are : <ul><li>Boxty Breakfast</li><li>English Breakfast</li><li>Breakfast Potatoes</li>></ul>')">
+                        <p class="short-description">Completed with some delightful breakfast options. </p>
+                        <button type="button" class="btn btn-success"><a href="#items" style="text-decoration: none; color: white;"> Explore Items</a></button>
                     </div>
                 </div>
                 <div class="col-6 col-sm-4 col-md-2">
                     <div class="categories-content">
                         <p class="category-title">Fish</p>
-                        <img src="fish.png" class="category-img">
+                        <img src="fish.png" class="category-img" onclick="catagories('In our Fish catagory there are 5 items. They are : <ul><li>Fish Pie</li><li>Fish fofos</li><li>Three Fish Pie</li><li>Escovitch Fish</li><li>Fish Soup (Ukha)</li></ul>')">
                         <p class="short-description">Fresh and flavorful Sea fish, perfect for a light and healthy meal. </p>
+                        <button type="button" class="btn btn-success"><a href="#items" style="text-decoration: none; color: white;"> Explore Items</a></button>
+
                     </div>
                 </div>
             </div>
@@ -273,147 +139,136 @@
 <section id ="items">
     <div class="container text-center mt-5">
         <h2 class="mb-5 section-title text-center">Food Items</h2>
-            <div class="btn-group" style="display: block;"  role="group" aria-label="Filter Buttons">
-                <button type="button" class="btn btn-outline-success filter-button" data-filter="all"><img src="all.png" style="width: 50px;height: 50px;border-radius: 50%;">All</button>
-                <button type="button" class="btn btn-outline-success filter-button" data-filter="beef"><img src="beef.png" style="width: 50px;height: 50px;border-radius: 50%;"> Beef</button>
-                <button type="button" class="btn btn-outline-success filter-button" data-filter="chicken"><img src="chicken.png" style="width: 50px;height: 50px;border-radius: 50%;">Chicken</button>
-                <button type="button" class="btn btn-outline-success filter-button" data-filter="fish"><img src="fish.png" style="width: 50px;height: 50px;border-radius: 50%;">Fish</button>
-                <button type="button" class="btn btn-outline-success filter-button" data-filter="egg"><img src="egg.png" style="width: 50px;height: 50px;border-radius: 50%;">Egg</button>
-                <button type="button" class="btn btn-outline-success filter-button" data-filter="goat"><img src="goat.png" style="width: 50px;height: 50px;border-radius: 50%;">Goat</button>
-                <button type="button" class="btn btn-outline-success filter-button" data-filter="breakfast"><img src="breakfast.png" style="width: 50px;height: 50px;border-radius: 50%;">Breakfast</button>
-
+            <div class="direction1" style="display: flex;justify-content: space-around;gap: 0;">
+            <i class="fa-solid fa-arrow-right" style="color: green;"></i><p style="text-align: center;color: black;font-size: 20px;font-weight: bold;">Click any Catagory for filter the catagories and checkout the individual items for each catagory.</p>
             </div>
-    </div>
+            <div class="direction2" style="display: flex;justify-content: space-around;gap: 0;">
+                <i class="fa-solid fa-arrow-right" style="color: green;"></i><p style="text-align: center;color: black;font-size: 20px;font-weight: bold;">Click any items pictures for more details.</p>
+                </div>
+        <div class="btn-group" style="display: block;" role="group" aria-label="Filter Buttons">
+            <button type="button" class="btn btn-outline-success filter-button" data-filter="all"><img src="all.png" style="width: 50px;height: 50px;border-radius: 50%;">All</button>
+            <button type="button" class="btn btn-outline-success filter-button" data-filter="beef"><img src="beef.png" style="width: 50px;height: 50px;border-radius: 50%;"> Beef</button>
+            <button type="button" class="btn btn-outline-success filter-button" data-filter="chicken"><img src="chicken.png" style="width: 50px;height: 50px;border-radius: 50%;">Chicken</button>
+            <button type="button" class="btn btn-outline-success filter-button" data-filter="fish"><img src="fish.png" style="width: 50px;height: 50px;border-radius: 50%;">Fish</button>
+            <button type="button" class="btn btn-outline-success filter-button" data-filter="egg"><img src="egg.png" style="width: 50px;height: 50px;border-radius: 50%;">Egg</button>
+            <button type="button" class="btn btn-outline-success filter-button" data-filter="goat"><img src="goat.png" style="width: 50px;height: 50px;border-radius: 50%;">Goat</button>
+            <button type="button" class="btn btn-outline-success filter-button" data-filter="breakfast"><img src="breakfast.png" style="width: 50px;height: 50px;border-radius: 50%;">Breakfast</button>
+        </div>
 </section>
+
 
 <section id="items">
     <div class="container text-center">
         <div class="row">
+            <!-- Beef Items -->
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="beef">
                 <div class="categories-content">
                     <p class="category-title">Beef Asado</p>
-                    <img src="beef1.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$8.00</p>
+                    <img src="beef1.png" class="category-img" onclick="openDetails('beef1.png', 'Beef Asado', 8.00 , 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$8.00</p>
                     <div class="ratings">⭐⭐⭐⭐</div>
                     <button type="button" class="btn btn-success" onclick="addToCart('beef1.png', 'Beef Asado', 8.00)">Add to Cart</button>
-
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="beef">
                 <div class="categories-content">
                     <p class="category-title">Beef Lo Mein</p>
-                    <img src="beef2.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$10.00</p>
-
+                    <img src="beef2.png" class="category-img" onclick="openDetails('beef2.png', 'Beef Lo Mein', 10.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$10.00</p>
                     <div class="ratings">⭐⭐⭐</div>
                     <button type="button" class="btn btn-success" onclick="addToCart('beef2.png', 'Beef Lo Mein', 10.00)">Add to Cart</button>
-
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="beef">
                 <div class="categories-content">
                     <p class="category-title">Beef Rendang</p>
-                    <img src="beef3.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$12.00</p>
-
+                    <img src="beef3.png" class="category-img" onclick="openDetails('beef3.png', 'Beef Rendang', 12.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$12.00</p>
                     <div class="ratings">⭐⭐⭐⭐</div>
                     <button type="button" class="btn btn-success" onclick="addToCart('beef3.png', 'Beef Rendang', 12.00)">Add to Cart</button>
-
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="beef">
                 <div class="categories-content">
                     <p class="category-title">Beef Mechado</p>
-                    <img src="beef4.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$10.00</p>
-
+                    <img src="beef4.png" class="category-img" onclick="openDetails('beef4.png', 'Beef Mechado', 10.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$10.00</p>
                     <div class="ratings">⭐⭐⭐⭐</div>
                     <button type="button" class="btn btn-success" onclick="addToCart('beef4.png', 'Beef Mechado', 10.00)">Add to Cart</button>
-
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="beef">
                 <div class="categories-content">
                     <p class="category-title">Szechuan Beef</p>
-                    <img src="beef5.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$15.00</p>
-
+                    <img src="beef5.png" class="category-img" onclick="openDetails('beef5.png', 'Szechuan Beef', 15.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$15.00</p>
                     <div class="ratings">⭐⭐⭐⭐</div>
                     <button type="button" class="btn btn-success" onclick="addToCart('beef5.png', 'Szechuan Beef', 15.00)">Add to Cart</button>
-
                 </div>
             </div>
+
+            <!-- Chicken Items -->
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="chicken">
                 <div class="categories-content">
                     <p class="category-title">Chicken Handi</p>
-                    <img src="chicken1.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$8.00</p>
-
+                    <img src="chicken1.png" class="category-img" onclick="openDetails('chicken1.png', 'Chicken Handi', 8.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$8.00</p>
                     <div class="ratings">⭐⭐⭐⭐</div>
                     <button type="button" class="btn btn-success" onclick="addToCart('chicken1.png', 'Chicken Handi', 8.00)">Add to Cart</button>
-
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="chicken">
                 <div class="categories-content">
                     <p class="category-title">Chicken Congee</p>
-                    <img src="chicken2.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$10.00</p>
-
+                    <img src="chicken2.png" class="category-img" onclick="openDetails('chicken2.png', 'Chicken Congee', 10.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$10.00</p>
                     <div class="ratings">⭐⭐⭐⭐</div>
-<button type="button" class="btn btn-success" onclick="addToCart('chicken2.png', 'Chicken Congee', 10.00)">Add to Cart</button>
-
+                    <button type="button" class="btn btn-success" onclick="addToCart('chicken2.png', 'Chicken Congee', 10.00)">Add to Cart</button>
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="chicken">
                 <div class="categories-content">
                     <p class="category-title">Chicken Karaage</p>
-                    <img src="chicken3.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$10.00</p>
-
+                    <img src="chicken3.png" class="category-img" onclick="openDetails('chicken3.png', 'Chicken Karaage', 10.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$10.00</p>
                     <div class="ratings">⭐⭐⭐⭐</div>
-<button type="button" class="btn btn-success" onclick="addToCart('chicken3.png', 'Chicken Karaage', 10.00)">Add to Cart</button>
-
+                    <button type="button" class="btn btn-success" onclick="addToCart('chicken3.png', 'Chicken Karaage', 10.00)">Add to Cart</button>
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="chicken">
                 <div class="categories-content">
-                    <p class="category-title">Tandoori chicken</p>
-                    <img src="chicken4.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$12.00</p>
-
+                    <p class="category-title">Tandoori Chicken</p>
+                    <img src="chicken4.png" class="category-img" onclick="openDetails('chicken4.png', 'Tandoori Chicken', 12.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$12.00</p>
                     <div class="ratings">⭐⭐⭐⭐</div>
-<button type="button" class="btn btn-success" onclick="addToCart('chicken4.png', 'Tandoori chicken', 12.00)">Add to Cart</button>
-
+                    <button type="button" class="btn btn-success" onclick="addToCart('chicken4.png', 'Tandoori Chicken', 12.00)">Add to Cart</button>
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="chicken">
                 <div class="categories-content">
-                    <p class="category-title">Chicken curry</p>
-                    <img src="chicken5.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$9.00</p>
-
+                    <p class="category-title">Chicken Curry</p>
+                    <img src="chicken5.png" class="category-img" onclick="openDetails('chicken5.png', 'Chicken Curry', 9.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$9.00</p>
                     <div class="ratings">⭐⭐⭐⭐</div>
-<button type="button" class="btn btn-success" onclick="addToCart('chicken5.png', 'Chicken curry', 9.00)">Add to Cart</button>
-
+                    <button type="button" class="btn btn-success" onclick="addToCart('chicken5.png', 'Chicken Curry', 9.00)">Add to Cart</button>
                 </div>
             </div>
+
+            <!-- Fish Items -->
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="fish">
                 <div class="categories-content">
-                    <p class="category-title">Fish pie</p>
-                    <img src="fish1.png" class="category-img">
-                    <p class="price" style="text-align: center;color: green;font-size: 24px;">$13.00</p>
-
+                    <p class="category-title">Fish Pie</p>
+                    <img src="fish1.png" class="category-img" onclick="openDetails('fish1.png', 'Fish Pie', 13.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
+                    <p class="price" style="text-align: center; color: green; font-size: 24px;">$13.00</p>
                     <div class="ratings">⭐⭐⭐⭐</div>
-<button type="button" class="btn btn-success" onclick="addToCart('fish1.png', 'Fish Pie', 13.00)">Add to Cart</button>
-
+                    <button type="button" class="btn btn-success" onclick="addToCart('fish1.png', 'Fish Pie', 13.00)">Add to Cart</button>
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 item" data-category="fish">
                 <div class="categories-content">
                     <p class="category-title">Fish fofos
                     </p>
-                    <img src="fish2.png" class="category-img">
+                    <img src="fish2.png" class="category-img" onclick="openDetails('fish2.png', 'Fish fofos', 9.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$9.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -425,7 +280,7 @@
                 <div class="categories-content">
                     <p class="category-title">Three Fish Pie
                     </p>
-                    <img src="fish3.png" class="category-img">
+                    <img src="fish3.png" class="category-img" onclick="openDetails('fish3.png', 'Three Fish Pie', 16.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$16.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -437,7 +292,7 @@
                 <div class="categories-content">
                     <p class="category-title">Escovitch Fish
                     </p>
-                    <img src="fish.png" class="category-img">
+                    <img src="fish.png" class="category-img" onclick="openDetails('fish.png', 'Escovitch Fish', 14.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$14.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -449,7 +304,7 @@
                 <div class="categories-content">
                     <p class="category-title">Fish Soup (Ukha)
                     </p>
-                    <img src="fish5.png" class="category-img">
+                    <img src="fish5.png" class="category-img" onclick="openDetails('fish5.png', 'Fish Soup (Ukha)', 13.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$15.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -461,7 +316,7 @@
                 <div class="categories-content">
                     <p class="category-title">Egg Drop Soup
                     </p>
-                    <img src="egg1.png" class="category-img">
+                    <img src="egg1.png" class="category-img" onclick="openDetails('egg1.png', 'Egg Drop Soup', 3.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$3.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -473,7 +328,7 @@
                 <div class="categories-content">
                     <p class="category-title">Eggplant Adobo
                     </p>
-                    <img src="egg2.png" class="category-img">
+                    <img src="egg2.png" class="category-img" onclick="openDetails('egg2.png', 'Eggplant Adobo', 6.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$6.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -485,7 +340,7 @@
                 <div class="categories-content">
                     <p class="category-title">Crispy Eggplant
                     </p>
-                    <img src="egg3.png" class="category-img">
+                    <img src="egg3.png" class="category-img" onclick="openDetails('egg3.png', 'Crispy Eggplant', 5.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$5.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -497,7 +352,7 @@
                 <div class="categories-content">
                     <p class="category-title">Tuna and Egg Briks
                     </p>
-                    <img src="egg4.png" class="category-img">
+                    <img src="egg4.png" class="category-img" onclick="openDetails('egg4.png', 'Tuna and Egg Briks', 6.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$6.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -509,7 +364,7 @@
                 <div class="categories-content">
                     <p class="category-title">Salmon Eggs 
                     </p>
-                    <img src="egg.png" class="category-img">
+                    <img src="egg.png" class="category-img" onclick="openDetails('egg.png', 'Salmon Eggs ', 4.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$4.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -521,7 +376,7 @@
                 <div class="categories-content">
                     <p class="category-title">Roasted Goat
                     </p>
-                    <img src="goat.png" class="category-img">
+                    <img src="goat.png" class="category-img" onclick="openDetails('goat.png', 'Roasted Goat', 12.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$12.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -533,7 +388,7 @@
                 <div class="categories-content">
                     <p class="category-title">Boxty Breakfast
                     </p>
-                    <img src="bf1.png" class="category-img">
+                    <img src="bf1.png" class="category-img" onclick="openDetails('bf1.png', 'Boxty Breakfast', 4.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$4.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -545,7 +400,7 @@
                 <div class="categories-content">
                     <p class="category-title">English Breakfast
                     </p>
-                    <img src="bf2.png" class="category-img">
+                    <img src="bf2.png" class="category-img" onclick="openDetails('bf2.png', 'English Breakfast', 5.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$5.00</p>
 
                     <div class="ratings">⭐⭐⭐⭐</div>
@@ -557,9 +412,8 @@
                 <div class="categories-content">
                     <p class="category-title">Breakfast Potatoes
                     </p>
-                    <img src="bf3.png" class="category-img">
+                    <img src="bf3.png" class="category-img" onclick="openDetails('bf3.png', 'Breakfast Potatoes', 3.00, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, sunt? Dignissimos accusantium blanditiis sed quam minus repellat doloribus commodi nulla quisquam sapiente voluptatibus debitis eius nam facere facilis molestias est mollitia enim porro dolorum provident, fugit culpa fuga esse. Neque odit eum nobis perspiciatis, veniam aspernatur? Error sequi voluptatum sunt.')">
                     <p class="price" style="text-align: center;color: green;font-size: 24px;">$3.00</p>
-
                     <div class="ratings">⭐⭐⭐⭐</div>
                     <button type="button" class="btn btn-success" onclick="addToCart('bf3.png', 'Breakfast Potatoes', 3.00)">Add to Cart</button>
 
@@ -575,86 +429,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-<script>
-document.querySelectorAll('.filter-button').forEach(button => {
-    button.addEventListener('click', function() {
-        let filter = this.getAttribute('data-filter');
-        document.querySelectorAll('.categories-content').forEach(item => {
-            if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-});
-
-function openCart() {
-            const cartElement = document.getElementById('cartList');
-
-            if (cartElement.style.display === 'block') {
-                cartElement.style.display = 'none';
-
-                
-
-            } else {
-                cartElement.style.display = 'block';
-
-            }
-        }
-
-        function addToCart(image, title, price) {
-    const cartBody = document.getElementById('cart-body');
-
-    // Check if item is already in the cart
-    const existingItem = Array.from(cartBody.getElementsByTagName('tr')).find(row => row.querySelector('.cart-item-title').innerText === title);
-    
-    if (existingItem) {
-        const qtyElement = existingItem.querySelector('.cart-item-qty');
-        const qty = parseInt(qtyElement.innerText) + 1;
-        qtyElement.innerText = qty;
-        
-        const totalElement = existingItem.querySelector('.cart-item-total');
-        totalElement.innerText = '$' + (qty * price).toFixed(2);
-    } else {
-        const newRow = document.createElement('tr');
-        newRow.innerHTML = `
-            <td><img src="${image}" alt="${title}" style="width: 50px;border-radius:50%;"></td>
-            <td class="cart-item-title">${title}</td>
-            <td>$${price.toFixed(2)}</td>
-            <td class="cart-item-qty">1</td>
-            <td class="cart-item-total">$${price.toFixed(2)}</td>
-        `;
-        cartBody.appendChild(newRow);
-    }
-
-    // Update total price
-    updateTotalPrice();
-    
-    // Update cart count
-    updateCartCount();
-}
-
-function updateTotalPrice() {
-    const cartBody = document.getElementById('cart-body');
-    let totalPrice = 0;
-
-    Array.from(cartBody.getElementsByTagName('tr')).forEach(row => {
-        const totalElement = row.querySelector('.cart-item-total');
-        totalPrice += parseFloat(totalElement.innerText.replace('$', ''));
-    });
-
-    document.getElementById('total-price').innerText = 'Total: $' + totalPrice.toFixed(2);
-}
-
-function updateCartCount() {
-    const cartBody = document.getElementById('cart-body');
-    const cartCount = cartBody.getElementsByTagName('tr').length;
-    document.getElementById('cart-count').innerText = cartCount;
-}
-
-
-
-</script>    
+<script src="script.js"></script>    
 </body>
 </html>
