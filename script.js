@@ -6,30 +6,117 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-button');
     const items = document.querySelectorAll('.item');
 
-function updateCartDisplay() {
-cartBody.innerHTML = '';
-let totalPrice = 0;
-cart.forEach(item => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-        <td><img src="${item.img}" style="width: 50px; height: 50px; border-radius:50%;" /></td>
-        <td>${item.title}</td>
-        <td>$${item.price.toFixed(2)}</td>
-        <td>
-            <button style="background-color:green;border-radius:10px;" onclick="changeQuantity('${item.img}', -1)">-</button>
-            ${item.quantity}
-            <button style="background-color:green;border-radius:10px;"  onclick="changeQuantity('${item.img}', 1)">+</button>
-            
-        </td>
-        <td>$${(item.price * item.quantity).toFixed(2)}</td>
-    `;
-    cartBody.appendChild(row);
-    totalPrice += item.price * item.quantity;
-});
-totalPriceElement.innerText = ` $${totalPrice.toFixed(2)}`;
-cartCount.innerText = cart.length;
-localStorage.setItem('foodCart', JSON.stringify(cart));
-}
+    function updateCartDisplay() {
+        cartBody.innerHTML = '';
+        let totalPrice = 0;
+        
+        cart.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td style="padding: 10px;"><img src="${item.img}" style="width: 50px; height: 50px; border-radius:50%;" /></td>
+                <td style="padding: 10px;">${item.title}</td>
+                <td style="padding: 10px;">$${item.price.toFixed(2)}</td>
+                <td style="padding: 10px;">
+                    <button style="background-color:green;border-radius:10px;" onclick="changeQuantity('${item.img}', -1)">-</button>
+                    ${item.quantity}
+                    <button style="background-color:green;border-radius:10px;"  onclick="changeQuantity('${item.img}', 1)">+</button>
+                </td>
+                <td style="padding: 10px;">$${(item.price * item.quantity).toFixed(2)}</td>
+                <td style="padding: 10px;">
+                    <button style="background-color:green;color:white;border-radius:10px;" onclick="removeItem('${item.img}')"><i class="fa-sharp-duotone fa-solid fa-trash"></i></button>
+                </td>
+            `;
+            row.style.borderBottom = "2px solid red"; // Add a border for separation
+            row.style.marginBottom = "10px"; // Add margin for spacing
+            cartBody.appendChild(row);
+            totalPrice += item.price * item.quantity;
+        });
+        totalPriceElement.innerText = `$${totalPrice.toFixed(2)}`;
+        let initialTax = 0;
+        const taxAmount = totalPrice*0.05;
+        const taxDiv = document.querySelector('.tax');
+        taxDiv.innerHTML = `Tax Amount is(5% on Total Price) : $${taxAmount.toFixed(2)} `;
+
+
+
+
+
+        cartCount.innerText = cart.length;
+        localStorage.setItem('foodCart', JSON.stringify(cart));
+
+    
+        // Apply discount if a valid code has been entered
+        const discountCode = localStorage.getItem('discountCode');
+        let discountApplied = 0; // To store the discount amount
+        const finalPrice = document.querySelector('#total-price');
+        if (discountCode === 'DISCOUNT10') {
+            discountApplied = totalPrice * 0.1;
+            totalPrice -= discountApplied; 
+            document.getElementById('discount-message').innerText = 'Discount applied: 10% off';
+            const finalPrice2 = document.querySelector('.final-price');
+            finalPrice2.innerHTML = `Total Price after discount : <span style="color:green;font-weight:bold;">$${totalPrice.toFixed(2)}</span> `;
+            const taxDiv = document.querySelector('.tax');
+            taxDiv.innerHTML = `Tax Amount is(5% on Total Price) : <span style="color:green;font-weight:bold;">$${taxAmount.toFixed(2)}</span> `;
+            const afterTaxFinalPrice = document.querySelector('.tax-final-price');
+            const total = taxAmount + totalPrice;
+            afterTaxFinalPrice.innerHTML = `Total Final Price : <span style="color:green;font-weight:bold;"> $${total.toFixed(2)} </span>`;
+        } else if (discountCode === 'DISCOUNT20') {
+            discountApplied = totalPrice * 0.2;
+            totalPrice -= discountApplied; 
+            document.getElementById('discount-message').innerText = 'Discount applied: 20% off';
+            const finalPrice2 = document.querySelector('.final-price');
+            finalPrice2.innerHTML = `Total Price after discount : <span style="color:green;font-weight:bold;">$${totalPrice.toFixed(2)}</span>`;    
+            const taxDiv = document.querySelector('.tax');
+            taxDiv.innerHTML = `Tax Amount is(5% on Total Price) : <span style="color:green;font-weight:bold;">$${taxAmount.toFixed(2)}</span> `;
+            const afterTaxFinalPrice = document.querySelector('.tax-final-price');
+            const total = taxAmount + totalPrice;
+            afterTaxFinalPrice.innerHTML = `Total Final Price : <span style="color:green;font-weight:bold;"> $${total.toFixed(2)} </span>`;
+
+
+        } else if (discountCode !== 'DISCOUNT10' && discountCode !== 'DISCOUNT20'){
+            document.getElementById('discount-message').innerText = 'Invalid discount code';
+            const taxDiv = document.querySelector('.tax');
+            taxDiv.innerHTML = `Tax Amount is(5% on Total Price) : <span style="color:green;font-weight:bold;">$${taxAmount.toFixed(2)}</span> `;
+            const afterTaxFinalPrice = document.querySelector('.tax-final-price');
+            const total = taxAmount + totalPrice;
+            afterTaxFinalPrice.innerHTML = `Total Final Price : <span style="color:green;font-weight:bold;"> $${total.toFixed(2)} </span>`;
+        } else {
+            document.getElementById('discount-message').innerText = '';
+            const taxDiv = document.querySelector('.tax');
+            taxDiv.innerHTML = `Tax Amount is(5% on Total Price) : <span style="color:green;font-weight:bold;">$${taxAmount.toFixed(2)}</span>`;
+            const afterTaxFinalPrice = document.querySelector('.tax-final-price');
+            const total = taxAmount + totalPrice;
+            afterTaxFinalPrice.innerHTML = `Total Final Price : <span style="color:green;font-weight:bold;"> $${total.toFixed(2)} </span>`;
+        }
+    
+        
+
+        
+    }
+    
+    function applyDiscount() {
+        const discountInput = document.getElementById('discount-code').value.trim();
+        if (discountInput === 'DISCOUNT10' || discountInput === 'DISCOUNT20') {
+            localStorage.setItem('discountCode', discountInput);
+        } else {
+            localStorage.removeItem('discountCode');
+        }
+        updateCartDisplay(); // Recalculate the total with the discount
+    }
+    document.getElementById('apply-discount').addEventListener('click', applyDiscount);
+    
+    
+    
+    function removeItem(img) {
+        const itemIndex = cart.findIndex(item => item.img === img);
+        if (itemIndex !== -1) {
+            cart.splice(itemIndex, 1); // Remove the item from the cart
+            updateCartDisplay(); // Update the cart display after removal
+        }
+    }
+    
+    window.removeItem = removeItem; // Expose to global scope for inline HTML calls
+    
 
 function addToCart(img, title, price) {
 const existingItem = cart.find(item => item.img === img);
@@ -156,12 +243,10 @@ cataDiv.innerHTML = `
 <p>${description}</p>`;
 cataDiv.classList.add('cataDiv');
 
-// Append the overlay and category div to the body
 document.body.appendChild(overlay);
 document.body.appendChild(cataDiv);
 }
 
-// Function to close the category view
 function closeCatagories() {
 const overlay = document.querySelector('.overlay');
 const cataDiv = document.querySelector('.cataDiv');

@@ -25,7 +25,7 @@
                         <a class="nav-link mx-auto text-white" href="#home">Home</a>
                         <a class="nav-link mx-auto text-white" href="#categories">Categories</a>
                         <a class="nav-link mx-auto text-white" href="#items">Items</a>
-                        <a class="nav-link mx-auto text-white" href="#">Address</a>
+                        <a class="nav-link mx-auto text-white" href="#address">Address</a>
                     </div>
                 </div>
             
@@ -56,6 +56,17 @@
                         </tr>
                     </tfoot>
                 </table>
+                <div id="discount-container">
+                    <input type="text" style="background-color: rgb(10, 107, 145);border-radius: 15px;" id="discount-code" placeholder="Enter discount code" />
+                    <button type="button"  id="apply-discount">Apply Discount</button>
+                    <p id="discount-message" style="color: red;"></p>
+                </div>
+                <p class="final-price"></p>
+                <p class="tax">
+                    
+                </p>
+                <p class="tax-final-price"></p>
+                
             </div>
             <button type="button" class="btn btn-success" onclick="orderProcess()">Order</button>
             <div id="order-summary"></div>
@@ -423,6 +434,69 @@
         </div>
     </div>
 </section>
+  
+
+<section id="address" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Our Address</h2>
+                <p>
+                    <strong>HomeMade Restaurant</strong><br>
+                    5<sup>th</sup>Floor,Road 4B<br>
+                    Noakhali Super Market.<br>
+                    Phone: (123) 456-7890<br>
+                    Email: mhs2004037@homemade.com
+                </p>
+                <!-- Google Maps iframe -->
+                <div class="map-responsive">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.1894718021185!2d91.09479860936972!3d22.869458179194933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3754a458876a832d%3A0xf58dba88b5800713!2sNoakhali%20Super%20Market!5e0!3m2!1sen!2sbd!4v1723836845347!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Get In Touch</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer class="bg-success text-white text-center py-3">
+    <div class="container">
+        <p class="mb-0">© 2024 HomeMade. All rights reserved.</p>
+        <p class="mb-0">Follow us on:</p>
+        <div class="social-links">
+            <a href="#" class="text-white mx-2">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#" class="text-white mx-2">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="#" class="text-white mx-2">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="text-white mx-2">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+</footer>
 
 
 

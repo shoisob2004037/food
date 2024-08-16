@@ -1,8 +1,7 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Charm:wght@400;700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kalnia+Glaze:wght@100..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Mooli&family=PT+Sans+Narrow:wght@400;700&family=Roboto+Slab:wght@100..900&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&family=Teko:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 *{
-    font-family: "Merriweather", serif;
+    font-family: "Josefin Sans", sans-serif;
 
 }
 #home {
@@ -19,6 +18,7 @@ background: linear-gradient(45deg, #0dbed9, #feb47b);
     font-size: 1.25rem;
     margin-bottom: 20px;
 }
+
 
 #home img {
     width: 100%;
@@ -119,22 +119,26 @@ i #cart-count{
     line-height: 1;
     z-index: 1; /* Ensure it appears above the icon */
 }
-#cartList{
-        position: sticky;
-        top: 0;
-        padding: 10px;
-        border-left: 1px solid #ccc;
-        height: 100vh;
-        overflow-y: auto;
-        background-color: rgb(183, 221, 146);
-        display: none;
-        border-radius: 20px;
-    }
+
+#cartList {
+    position: fixed; /* Fixes the cartList to the viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    padding: 10px;
+    border-left: 1px solid #ccc;
+    background: linear-gradient(45deg, #8a4fa7, #a2d2bb);
+    display: none; /* Initially hidden */
+    border-radius: 20px;
+    overflow-y: auto; /* Allows scrolling within the cartList if needed */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
     #cart-items{
         width: 100%;
         margin: 10px;
         padding: 10px;
-        border-radius: 20px;
     }
     #total-price {
         margin-top: 10px;
@@ -207,10 +211,145 @@ i #cart-count{
 
 
 
-#final-order{
-    display: none;
+    #discount-container {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    #discount-code {
+        padding: 10px;
+        border: 2px solid #4CAF50; /* Green border */
+        border-radius: 15px;
+        font-size: 16px;
+        width: 200px; /* Adjust as needed */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+    
+    #apply-discount {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 15px;
+        background-color: #4CAF50; /* Green background */
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    #apply-discount:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+    
+    #discount-message {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+
+
+
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
+/* Address Section */
+#address {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
 
+#address h2 {
+    font-size: 28px;
+    color: #343a40;
+    margin-bottom: 20px;
+}
 
+#address p {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
 
+#address strong {
+    font-size: 18px;
+    color: #343a40;
+}
+
+/* Responsive Google Maps */
+.map-responsive {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+}
+
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Contact Form */
+#address form {
+    background-color: #65b36d;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#address .form-label {
+    font-size: 16px;
+    color: #343a40;
+    margin-bottom: 5px;
+}
+
+#address .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px;
+}
+
+#address .form-control:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#address button[type="submit"] {
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#address button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #address {
+        text-align: center;
+    }
+
+    #address .col-md-6 {
+        margin-bottom: 30px;
+    }
+
+    #address form {
+        padding: 20px;
+    }
+}
