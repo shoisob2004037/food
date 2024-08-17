@@ -51,11 +51,13 @@
                     <tfoot>
                         <tr>
 
-                            <td colspan="4"><strong>Total:</strong></td>
+                            <td colspan="4" style="text-align: center;"><strong>Total:</strong></td>
                             <td id="total-price">$0.00</td>
                         </tr>
                     </tfoot>
                 </table>
+            </div>
+            <div style="margin:10px;padding:10px;">
                 <div id="discount-container">
                     <input type="text" style="background-color: rgb(10, 107, 145);border-radius: 15px;" id="discount-code" placeholder="Enter discount code" />
                     <button type="button"  id="apply-discount">Apply Discount</button>
@@ -68,8 +70,18 @@
                 <p class="tax-final-price"></p>
                 
             </div>
-            <button type="button" class="btn btn-success" onclick="orderProcess()">Order</button>
+        <div style="margin:10px;padding:10px;margin-bottom: 20px;">
+            <button type="button" class="btn btn-success" id="order-btn">Process to Order</button>
+            <div id="popup-overlay" class="popup-overlay">
+                <div class="popup-content">
+                    <span class="close-popup" id="close-popup">X</span>
+                    <div id="order-summary"></div>
+                    <button id="confirm-order" class="btn btn-info">Confirm Order</button>
+
+                </div>
+            </div>
             <div id="order-summary"></div>
+        </div>
             
         </div>
         <div class="container py-5">

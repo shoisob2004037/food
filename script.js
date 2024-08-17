@@ -38,8 +38,50 @@ document.addEventListener('DOMContentLoaded', function() {
         taxDiv.innerHTML = `Tax Amount is(5% on Total Price) : $${taxAmount.toFixed(2)} `;
 
 
+        const orderButton = document.querySelector('#order-btn');
+        const popupOverlay = document.querySelector('#popup-overlay');
+        const closePopup = document.querySelector('#close-popup');
+        const confirmOrderButton = document.querySelector('#confirm-order');
 
+        orderButton.addEventListener('click', orderProcess);
 
+        function orderProcess() {
+            const orderSummary = document.querySelector('#order-summary');
+            orderSummary.innerHTML = ''; // Clear previous content
+
+            // Add ordered items to the popup
+            cart.forEach(item => {
+                const pTag = document.createElement('p');
+                pTag.innerText = `You ordered: ${item.title} - Quantity: ${item.quantity}`;
+                orderSummary.appendChild(pTag);
+            });
+
+            // Add total price to the popup
+            const totalPriceTag = document.createElement('p');
+            totalPriceTag.innerHTML = `<strong>Total Price: $${(totalPrice+taxAmount).toFixed(2)}</strong>`;
+            orderSummary.appendChild(totalPriceTag);
+
+            // Show the popup
+            popupOverlay.style.display = 'flex';
+        }
+
+        closePopup.addEventListener('click', function() {
+            popupOverlay.style.display = 'none';
+        });
+        
+
+        
+        // popupOverlay.addEventListener('click', function(event) {
+        //     if (event.target === popupOverlay) {
+        //         popupOverlay.style.display = 'none';
+        //     }
+        // });
+
+        confirmOrderButton.addEventListener('click', function() {
+            alert('Order Confirmed!'); // Add your order processing logic here
+            popupOverlay.style.display = 'none'; // Close the popup after confirming
+        });
+       
 
         cartCount.innerText = cart.length;
         localStorage.setItem('foodCart', JSON.stringify(cart));
@@ -257,5 +299,4 @@ if (cataDiv) {
 document.body.removeChild(cataDiv);
 }
 }
-
 
