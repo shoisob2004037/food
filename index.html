@@ -38,12 +38,12 @@
             <div id="cart-items">
                 <table>
                     <thead>
-                        <tr>
-                            <th >Item Img</th>
+                        <tr style="padding:100px;">
+                            <th>Img</th>
                             <th>Title</th>
-                            <th >Price</th>
+                            <th>Price</th>
                             <th>Quantity</th>
-                            <th >Total</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody id="cart-body">
@@ -71,16 +71,17 @@
                 
             </div>
         <div style="margin:10px;padding:10px;margin-bottom: 20px;">
-            <button type="button" class="btn btn-success" id="order-btn">Process to Order</button>
+            <button type="button" class="btn btn-success" id="order-btn">CheckOut</button>
             <div id="popup-overlay" class="popup-overlay">
                 <div class="popup-content">
                     <span class="close-popup" id="close-popup">X</span>
                     <div id="order-summary"></div>
-                    <button id="confirm-order" class="btn btn-info">Confirm Order</button>
-
+                    <button id="confirm-order" class="btn btn-info">Process to Order</button>
                 </div>
             </div>
             <div id="order-summary"></div>
+        </div>
+        <div class="final-process">
         </div>
             
         </div>
@@ -450,6 +451,7 @@
 
 <section id="address" class="py-5 bg-light">
     <div class="container">
+        <h2 class="mb-5 section-title text-center">Address & contact</h2>
         <div class="row">
             <div class="col-md-6">
                 <h2>Our Address</h2>
@@ -460,26 +462,25 @@
                     Phone: (123) 456-7890<br>
                     Email: mhs2004037@homemade.com
                 </p>
+                <div class="my-5 px-3 py-3" style="border:2px dashed green">
+                    <h2>Check Out my Food Recipe Website.</h2>
+                    <a href="https://shoisob2004037.github.io/cooking-recipe-app/" target="_blank">
+                        <button type="button" class="btn btn-info">Click Here!</button>
+                    </a>
+                </div>
+
                 <!-- Google Maps iframe -->
                 <div class="map-responsive">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.1894718021185!2d91.09479860936972!3d22.869458179194933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3754a458876a832d%3A0xf58dba88b5800713!2sNoakhali%20Super%20Market!5e0!3m2!1sen!2sbd!4v1723836845347!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="col-md-6">
-                <h2>Get In Touch</h2>
-                <form>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Your Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Your Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
-                    </div>
+                <h2>Feedback about my Food Website.Thank You!</h2>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="49cbfe00-01ee-4fe3-ba7b-2bacf3cd14b5">
+                        <input type="text"  name="name" required placeholder="Your Name">
+                        <input type="text"  name="email" required placeholder="Your Email">
+                        <textarea name="message" cols="10" rows="10" required placeholder="Any Messages."></textarea>
                     <button type="submit" class="btn btn-success">Send Message</button>
                 </form>
             </div>
