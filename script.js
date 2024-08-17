@@ -156,28 +156,30 @@ document.addEventListener('DOMContentLoaded', function() {
         finalProcess.style.display = 'block';
     
         const orderSummary = document.querySelector('#order-summary');
-        let orderItems = '';
+        let additionalMessage = '';
         const summaryParagraphs = orderSummary.querySelectorAll('p');
         summaryParagraphs.forEach(p => {
-            orderItems += p.innerText + '\n';
+            additionalMessage += p.innerText + '\n';
         });
     
         finalProcess.innerHTML = `
-            <h2>Order Confirmation</h2>
-            <form action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="49cbfe00-01ee-4fe3-ba7b-2bacf3cd14b5">
-                <input type="text"  name="name" required placeholder="Your Name">
-                <input type="text"  name="email" required placeholder="Your Email">
-                <input type="text" name="address" required placeholder="Your Address">
-                <input type="text" name="phone" required placeholder="Phone Number">
-                <textarea name="message" cols="10" rows="10" required placeholder="Order Lists..readonly>${orderItems}"></textarea>
-                <textarea name="message" cols="10" rows="10" required placeholder="Any Additional Message about Order.."</textarea>
-                <div class="contact-btn">
-                    <button type="button" id="back" style="margin-right:5px;">Back</button>
-                    <button type="submit" style="margin-right:5px;">Order Confirm</button>
-                    <button type="button" id="close-final-process">X</button>
-                </div>
-            </form>
+    <h2>Order Confirmation</h2>
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="49cbfe00-01ee-4fe3-ba7b-2bacf3cd14b5">
+        <input type="text" name="name" required placeholder="Your Name">
+        <input type="email" name="email" required placeholder="Your Email">
+        <input type="text" name="address" required placeholder="Your Address">
+        <input type="text" name="phone" required placeholder="Phone Number">
+        <textarea name="order_lists" cols="30" rows="5" required placeholder="Order Lists"readonly>${additionalMessage}</textarea>
+        <textarea name="additional_message" cols="30" rows="5" placeholder="Any Additional Message about Order..."></textarea>
+        <div class="contact-btn">
+            <button type="button" id="back" style="margin-right:5px;">Back</button>
+            <button type="submit" style="margin-right:5px;">Order Confirm</button>
+            <button type="button" id="close-final-process">X</button>
+        </div>
+    </form>
+
+
         `;
     
         document.getElementById('close-final-process').addEventListener('click', function() {
