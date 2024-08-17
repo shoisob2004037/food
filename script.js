@@ -156,10 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
         finalProcess.style.display = 'block';
     
         const orderSummary = document.querySelector('#order-summary');
-        let additionalMessage = '';
+        let orderItems = '';
         const summaryParagraphs = orderSummary.querySelectorAll('p');
         summaryParagraphs.forEach(p => {
-            additionalMessage += p.innerText + '\n';
+            orderItems += p.innerText + '\n';
         });
     
         finalProcess.innerHTML = `
@@ -170,8 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <input type="text"  name="email" required placeholder="Your Email">
                 <input type="text" name="address" required placeholder="Your Address">
                 <input type="text" name="phone" required placeholder="Phone Number">
-                <textarea name="message" cols="10" rows="10" required placeholder="Order Lists.."></textarea>
-                <textarea name="message" cols="10" rows="10" required placeholder="Any Additional Message about Order.."readonly>${additionalMessage}</textarea>
+                <textarea name="message" cols="10" rows="10" required placeholder="Order Lists..readonly>${orderItems}"></textarea>
+                <textarea name="message" cols="10" rows="10" required placeholder="Any Additional Message about Order.."</textarea>
                 <div class="contact-btn">
                     <button type="button" id="back" style="margin-right:5px;">Back</button>
                     <button type="submit" style="margin-right:5px;">Order Confirm</button>
